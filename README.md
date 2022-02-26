@@ -14,5 +14,9 @@
 * System creates Product items from valid data
 * System delivers Product items
 
+### Invalid Data (sad path)
+* System delivers error
 
+### No connectivity
+* System delivers error
 
