@@ -43,12 +43,12 @@ class SearchProductTests:XCTestCase {
     
     func test_load_deliversErrorOnClientError(){
         let (sut, client) = makeSUT()
-        
         client.error = NSError(domain: "Test", code: 0, userInfo: [:])
-        var capturedError:SearchProduct.Error?
-        sut.search(query: "") { error in capturedError = error}
         
-        XCTAssertEqual(capturedError, .connectivity)
+        var capturedErrors = [SearchProduct.Error]()
+        sut.search(query: "") { capturedErrors.append($0) }
+        
+        XCTAssertEqual(capturedErrors, [.connectivity])
     }
     
     // MARK: - Helpers
