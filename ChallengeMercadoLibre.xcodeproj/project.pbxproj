@@ -10,6 +10,7 @@
 		3FC5BC0F27CA5EB50031615A /* ChallengeMercadoLibre.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC5BC0627CA5EB50031615A /* ChallengeMercadoLibre.framework */; };
 		3FC5BC1527CA5EB50031615A /* ChallengeMercadoLibre.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC5BC0927CA5EB50031615A /* ChallengeMercadoLibre.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3FC5BC2627CA68400031615A /* SearchProductTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5BC2527CA68400031615A /* SearchProductTests.swift */; };
+		3FC5BC2B27CA7B890031615A /* SearchProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5BC2A27CA7B890031615A /* SearchProduct.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +28,7 @@
 		3FC5BC0927CA5EB50031615A /* ChallengeMercadoLibre.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChallengeMercadoLibre.h; sourceTree = "<group>"; };
 		3FC5BC0E27CA5EB50031615A /* ChallengeMercadoLibreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChallengeMercadoLibreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FC5BC2527CA68400031615A /* SearchProductTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProductTests.swift; sourceTree = "<group>"; };
+		3FC5BC2A27CA7B890031615A /* SearchProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProduct.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 		3FC5BC0827CA5EB50031615A /* ChallengeMercadoLibre */ = {
 			isa = PBXGroup;
 			children = (
+				3FC5BC2927CA7B620031615A /* Product API */,
 				3FC5BC0927CA5EB50031615A /* ChallengeMercadoLibre.h */,
 			);
 			path = ChallengeMercadoLibre;
@@ -80,6 +83,14 @@
 				3FC5BC2527CA68400031615A /* SearchProductTests.swift */,
 			);
 			path = ChallengeMercadoLibreTests;
+			sourceTree = "<group>";
+		};
+		3FC5BC2927CA7B620031615A /* Product API */ = {
+			isa = PBXGroup;
+			children = (
+				3FC5BC2A27CA7B890031615A /* SearchProduct.swift */,
+			);
+			path = "Product API";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FC5BC2B27CA7B890031615A /* SearchProduct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +410,7 @@
 		3FC5BC1C27CA5EB50031615A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZTBH29ZRG3;
@@ -419,6 +432,7 @@
 		3FC5BC1D27CA5EB50031615A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZTBH29ZRG3;

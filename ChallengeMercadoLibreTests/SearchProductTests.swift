@@ -7,29 +7,7 @@
 
 import Foundation
 import XCTest
-@testable import ChallengeMercadoLibre
-
-class SearchProduct{
-    let client: HTTPClient
-    let url: URL
-    
-    init(url:URL, client: HTTPClient){
-        self.url = url
-        self.client = client
-    }
-    
-    func search(query:String) {
-        client.get(from: url, query:query)
-    }
-}
-
-protocol HTTPClient {
-    
-    func get(from url: URL, query:String)
-    
-}
-
-
+import ChallengeMercadoLibre
 
 class SearchProductTests:XCTestCase {
     
