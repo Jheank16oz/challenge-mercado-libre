@@ -14,8 +14,8 @@ class SearchProductTests:XCTestCase {
     func test_init_doesNotRequestDataFromURLAndQuery(){
         let (_, client) = makeSUT()
         
-        XCTAssertNil(client.requestedURL)
-        XCTAssertNil(client.requestedQuery)
+        XCTAssertTrue(client.requestedURLs.isEmpty)
+        XCTAssertTrue(client.requestedQueries.isEmpty)
     }
     
     func test_search_requestsDataFromURLAndQuery(){
@@ -25,8 +25,8 @@ class SearchProductTests:XCTestCase {
         
         sut.search(query: query)
         
-        XCTAssertEqual(client.requestedURL, url)
-        XCTAssertEqual(client.requestedQuery, query)
+        XCTAssertEqual(client.requestedURLs,[url])
+        XCTAssertEqual(client.requestedQueries, [query])
     }
     
     func test_searchTwice_requestsDataFromURLAndQueryTwice(){
@@ -39,7 +39,6 @@ class SearchProductTests:XCTestCase {
         
         XCTAssertEqual(client.requestedURLs, [url, url])
         XCTAssertEqual(client.requestedQueries, [query, query])
-        XCTAssertEqual(client.requestedQuery, query)
     }
     
     // MARK: - Helpers
@@ -51,17 +50,12 @@ class SearchProductTests:XCTestCase {
     }
     
     private class HTTPClientSpy:HTTPClient {
-        var requestedURL: URL?
-        var requestedQuery:String?
         var requestedURLs = [URL]()
         var requestedQueries = [String]()
         
         func get(from url: URL, query: String) {
-            requestedURL = url
-            requestedQuery = query
             requestedURLs.append(url)
             requestedQueries .append(query)
-            
         }
 
     }
