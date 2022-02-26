@@ -9,7 +9,7 @@ import Foundation
 
 public protocol HTTPClient {
     
-    func get(from url: URL, query:String)
+    func get(from url: URL, query:String, completion:@escaping (Error) -> Void)
     
 }
 
@@ -17,12 +17,18 @@ public final class SearchProduct{
     private let url: URL
     private let client: HTTPClient
     
+    public enum Error: Swift.Error{
+        case connectivity
+    }
+    
     public init(url:URL, client: HTTPClient){
         self.url = url
         self.client = client
     }
     
-    public func search(query:String) {
-        client.get(from: url, query:query)
+    public func search(query:String, completion: @escaping (Error) -> Void = { _ in }) {
+        client.get(from: url, query:query) { error in
+            completion(.connectivity)
+        }
     }
 }
