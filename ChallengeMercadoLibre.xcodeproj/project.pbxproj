@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3FC5BC0F27CA5EB50031615A /* ChallengeMercadoLibre.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC5BC0627CA5EB50031615A /* ChallengeMercadoLibre.framework */; };
-		3FC5BC1427CA5EB50031615A /* ChallengeMercadoLibreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5BC1327CA5EB50031615A /* ChallengeMercadoLibreTests.swift */; };
 		3FC5BC1527CA5EB50031615A /* ChallengeMercadoLibre.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC5BC0927CA5EB50031615A /* ChallengeMercadoLibre.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3FC5BC2627CA68400031615A /* SearchProductTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5BC2527CA68400031615A /* SearchProductTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,7 +26,7 @@
 		3FC5BC0627CA5EB50031615A /* ChallengeMercadoLibre.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChallengeMercadoLibre.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FC5BC0927CA5EB50031615A /* ChallengeMercadoLibre.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChallengeMercadoLibre.h; sourceTree = "<group>"; };
 		3FC5BC0E27CA5EB50031615A /* ChallengeMercadoLibreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChallengeMercadoLibreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3FC5BC1327CA5EB50031615A /* ChallengeMercadoLibreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeMercadoLibreTests.swift; sourceTree = "<group>"; };
+		3FC5BC2527CA68400031615A /* SearchProductTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProductTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +77,7 @@
 		3FC5BC1227CA5EB50031615A /* ChallengeMercadoLibreTests */ = {
 			isa = PBXGroup;
 			children = (
-				3FC5BC1327CA5EB50031615A /* ChallengeMercadoLibreTests.swift */,
+				3FC5BC2527CA68400031615A /* SearchProductTests.swift */,
 			);
 			path = ChallengeMercadoLibreTests;
 			sourceTree = "<group>";
@@ -144,6 +144,7 @@
 				TargetAttributes = {
 					3FC5BC0527CA5EB50031615A = {
 						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1300;
 					};
 					3FC5BC0D27CA5EB50031615A = {
 						CreatedOnToolsVersion = 13.0;
@@ -198,7 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FC5BC1427CA5EB50031615A /* ChallengeMercadoLibreTests.swift in Sources */,
+				3FC5BC2627CA68400031615A /* SearchProductTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +339,7 @@
 		3FC5BC1927CA5EB50031615A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -358,6 +360,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -366,6 +369,7 @@
 		3FC5BC1A27CA5EB50031615A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
