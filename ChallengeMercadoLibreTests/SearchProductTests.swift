@@ -11,13 +11,15 @@ import XCTest
 
 class SearchProduct{
     let client: HTTPClient
+    let url: URL
     
-    init(client: HTTPClient){
+    init(url:URL, client: HTTPClient){
+        self.url = url
         self.client = client
     }
     
-    func search() {
-        client.get(from: URL(string: "https://a-url.com")!, query:"any query")
+    func search(query:String) {
+        client.get(from: url, query:query)
     }
 }
 
@@ -41,21 +43,24 @@ class HTTPClientSpy:HTTPClient {
 class SearchProductTests:XCTestCase {
     
     func test_init_doesNotRequestDataFromURLAndQuery(){
+        let url = URL(string: "https://a-given-url.com")!
         let client = HTTPClientSpy()
-        _ = SearchProduct(client: client)
+        _ = SearchProduct(url:url, client: client)
         
         XCTAssertNil(client.requestedURL)
         XCTAssertNil(client.requestedQuery)
     }
     
     func test_search_requestDataFromURLAndQuery(){
+        let url = URL(string: "https://a-given-url.com")!
+        let query = "any query"
         let client = HTTPClientSpy()
-        let sut = SearchProduct(client: client)
+        let sut = SearchProduct(url: url, client: client)
         
-        sut.search()
+        sut.search(query: query)
         
-        XCTAssertNotNil(client.requestedURL)
-        XCTAssertNotNil(client.requestedQuery)
+        XCTAssertEqual(client.requestedURL, url)
+        XCTAssertEqual(client.requestedQuery, query)
     }
     
     
