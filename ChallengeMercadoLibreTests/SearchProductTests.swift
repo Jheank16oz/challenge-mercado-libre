@@ -48,7 +48,7 @@ class SearchProductTests:XCTestCase {
         sut.search(query: "") { capturedErrors.append($0) }
         
         let clientError = NSError(domain: "Test", code: 0, userInfo: [:])
-        client.completions[0](clientError)
+        client.complete(with: clientError)
         
         XCTAssertEqual(capturedErrors, [.connectivity])
     }
@@ -71,6 +71,10 @@ class SearchProductTests:XCTestCase {
             completions.append(completion)
             requestedURLs.append(url)
             requestedQueries .append(query)
+        }
+        
+        func complete(with error: Error, at index: Int = 0){
+            completions[index](error)
         }
 
     }
