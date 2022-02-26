@@ -18,7 +18,7 @@ class SearchProductTests:XCTestCase {
         XCTAssertNil(client.requestedQuery)
     }
     
-    func test_search_requestDataFromURLAndQuery(){
+    func test_search_requestsDataFromURLAndQuery(){
         let url = URL(string: "https://a-given-url.com")!
         let query = "any query"
         let (sut, client) = makeSUT(url: url)
