@@ -62,19 +62,21 @@ class SearchProductTests:XCTestCase {
     }
     
     private class HTTPClientSpy:HTTPClient {
-        var requestedURLs = [URL]()
-        var requestedQueries = [String]()
-        var error: Error?
-        var completions = [(Error) -> Void]()
+        private var messages = [(url: URL, query:String, completion:(Error) -> Void)]()
+        
+        var requestedURLs:[URL]{
+            return messages.map{ $0.url }
+        }
+        var requestedQueries:[String]{
+            return messages.map{ $0.query }
+        }
         
         func get(from url: URL, query: String, completion: @escaping (Error) -> Void) {
-            completions.append(completion)
-            requestedURLs.append(url)
-            requestedQueries .append(query)
+            messages.append((url, query, completion))
         }
         
         func complete(with error: Error, at index: Int = 0){
-            completions[index](error)
+            messages[index].completion(error)
         }
 
     }
