@@ -23,7 +23,7 @@ class SearchProductTests:XCTestCase {
         let query = "any query"
         let (sut, client) = makeSUT(url: url)
         
-        sut.search(query: query)
+        sut.search(query: query){ _ in }
         
         XCTAssertEqual(client.requestedURLs,[url])
         XCTAssertEqual(client.requestedQueries, [query])
@@ -34,8 +34,8 @@ class SearchProductTests:XCTestCase {
         let query = "any query"
         let (sut, client) = makeSUT(url: url)
         
-        sut.search(query: query)
-        sut.search(query: query)
+        sut.search(query: query){ _ in }
+        sut.search(query: query){ _ in }
         
         XCTAssertEqual(client.requestedURLs, [url, url])
         XCTAssertEqual(client.requestedQueries, [query, query])

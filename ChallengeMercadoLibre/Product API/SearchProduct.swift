@@ -26,7 +26,7 @@ public final class SearchProduct{
         self.client = client
     }
     
-    public func search(query:String, completion: @escaping (Error) -> Void = { _ in }) {
+    public func search(query:String, completion: @escaping (Error) -> Void) {
         client.get(from: url, query:query) { error in
             completion(.connectivity)
         }
