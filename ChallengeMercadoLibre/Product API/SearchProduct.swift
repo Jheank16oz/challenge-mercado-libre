@@ -7,9 +7,14 @@
 
 import Foundation
 
+public enum HTTPClientResult {
+    case success(HTTPURLResponse)
+    case failure(Error)
+}
+
 public protocol HTTPClient {
     
-    func get(from url: URL, query:String, completion:@escaping (Error?, HTTPURLResponse?) -> Void)
+    func get(from url: URL, query:String, completion:@escaping (HTTPClientResult) -> Void)
     
 }
 
@@ -28,10 +33,11 @@ public final class SearchProduct{
     }
     
     public func search(query:String, completion: @escaping (Error) -> Void) {
-        client.get(from: url, query:query) { error, response in
-            if response != nil {
+        client.get(from: url, query:query) { result in
+            switch result {
+            case .success:
                 completion(.invalidData)
-            }else{
+            case .failure:
                 completion(.connectivity)
             }
             
