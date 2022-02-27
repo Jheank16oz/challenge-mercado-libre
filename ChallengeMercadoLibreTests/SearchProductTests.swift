@@ -41,7 +41,7 @@ class SearchProductTests:XCTestCase {
         XCTAssertEqual(client.requestedQueries, [query, query])
     }
     
-    func test_load_deliversErrorOnClientError(){
+    func test_seatch_deliversErrorOnClientError(){
         let (sut, client) = makeSUT()
         
         expect(sut, toCompleteWithError: .connectivity, when: {
@@ -50,7 +50,7 @@ class SearchProductTests:XCTestCase {
         })
     }
     
-    func test_load_deliversErrorOnNon200HTTPResponse(){
+    func test_search_deliversErrorOnNon200HTTPResponse(){
         let (sut, client) = makeSUT()
         
         let samples = [199, 201, 300, 400, 500]
@@ -62,7 +62,7 @@ class SearchProductTests:XCTestCase {
         }
     }
     
-    func test_load_deliversErrorOn200HTTPResponseWithInvalidJSON(){
+    func test_search_deliversErrorOn200HTTPResponseWithInvalidJSON(){
         let (sut, client) = makeSUT()
         
         expect(sut, toCompleteWithError: .invalidData, when: {
