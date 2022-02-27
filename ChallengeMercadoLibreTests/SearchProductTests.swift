@@ -44,13 +44,10 @@ class SearchProductTests:XCTestCase {
     func test_load_deliversErrorOnClientError(){
         let (sut, client) = makeSUT()
         
-        var capturedErrors = [SearchProduct.Error]()
-        sut.search(query: "") { capturedErrors.append($0) }
-        
-        let clientError = NSError(domain: "Test", code: 0, userInfo: [:])
-        client.complete(with: clientError)
-        
-        XCTAssertEqual(capturedErrors, [.connectivity])
+        expect(sut, toCompleteWithError: .connectivity, when: {
+            let clientError = NSError(domain: "Test", code: 0, userInfo: [:])
+            client.complete(with: clientError)
+        })
     }
     
     func test_load_deliversErrorOnNon200HTTPResponse(){
@@ -59,25 +56,19 @@ class SearchProductTests:XCTestCase {
         let samples = [199, 201, 300, 400, 500]
         
         samples.enumerated().forEach { index,code in
-            var capturedErrors = [SearchProduct.Error]()
-            sut.search(query: "") { capturedErrors.append($0) }
-            
-            client.complete(withStatusCode: code, at: index)
-            
-            XCTAssertEqual(capturedErrors, [.invalidData])
+            expect(sut, toCompleteWithError: .invalidData, when: {
+                client.complete(withStatusCode: code, at: index)
+            })
         }
-        
     }
     
     func test_load_deliversErrorOn200HTTPResponseWithInvalidJSON(){
         let (sut, client) = makeSUT()
-        var capturedErrors = [SearchProduct.Error]()
-        sut.search(query: "") { capturedErrors.append($0) }
         
-        let invalidJSON = Data.init("invalid json".utf8)
-        client.complete(withStatusCode: 200, data: invalidJSON)
-        
-        XCTAssertEqual(capturedErrors, [.invalidData])
+        expect(sut, toCompleteWithError: .invalidData, when: {
+            let invalidJSON = Data.init("invalid json".utf8)
+            client.complete(withStatusCode: 200, data: invalidJSON)
+        })
     }
     
     
@@ -87,6 +78,15 @@ class SearchProductTests:XCTestCase {
         let client = HTTPClientSpy()
         let sut = SearchProduct(url: url, client: client)
         return (sut, client)
+    }
+    
+    private func expect(_ sut: SearchProduct, query:String = "", toCompleteWithError error: SearchProduct.Error, when action: ()-> Void, file: StaticString = #filePath, line: UInt = #line) {
+        var capturedErrors = [SearchProduct.Error]()
+        sut.search(query: query) { capturedErrors.append($0) }
+        
+        action()
+        
+        XCTAssertEqual(capturedErrors, [error], file: file, line: line)
     }
     
     private class HTTPClientSpy:HTTPClient {
