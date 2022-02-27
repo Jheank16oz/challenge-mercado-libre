@@ -9,7 +9,7 @@ import Foundation
 
 public protocol HTTPClient {
     
-    func get(from url: URL, query:String, completion:@escaping (Error) -> Void)
+    func get(from url: URL, query:String, completion:@escaping (Error?, HTTPURLResponse?) -> Void)
     
 }
 
@@ -19,6 +19,7 @@ public final class SearchProduct{
     
     public enum Error: Swift.Error{
         case connectivity
+        case invalidData
     }
     
     public init(url:URL, client: HTTPClient){
@@ -27,8 +28,13 @@ public final class SearchProduct{
     }
     
     public func search(query:String, completion: @escaping (Error) -> Void) {
-        client.get(from: url, query:query) { error in
-            completion(.connectivity)
+        client.get(from: url, query:query) { error, response in
+            if response != nil {
+                completion(.invalidData)
+            }else{
+                completion(.connectivity)
+            }
+            
         }
     }
 }
