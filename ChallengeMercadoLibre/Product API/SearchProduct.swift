@@ -27,18 +27,23 @@ public final class SearchProduct{
         case invalidData
     }
     
+    public enum Result: Equatable {
+        case success([ProductItem])
+        case failure(Error)
+    }
+    
     public init(url:URL, client: HTTPClient){
         self.url = url
         self.client = client
     }
     
-    public func search(query:String, completion: @escaping (Error) -> Void) {
+    public func search(query:String, completion: @escaping (Result) -> Void) {
         client.get(from: url, query:query) { result in
             switch result {
             case .success:
-                completion(.invalidData)
+                completion(.failure(.invalidData))
             case .failure:
-                completion(.connectivity)
+                completion(.failure(.connectivity))
             }
             
         }

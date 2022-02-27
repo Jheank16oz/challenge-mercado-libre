@@ -81,12 +81,12 @@ class SearchProductTests:XCTestCase {
     }
     
     private func expect(_ sut: SearchProduct, query:String = "", toCompleteWithError error: SearchProduct.Error, when action: ()-> Void, file: StaticString = #filePath, line: UInt = #line) {
-        var capturedErrors = [SearchProduct.Error]()
-        sut.search(query: query) { capturedErrors.append($0) }
+        var capturedResults = [SearchProduct.Result]()
+        sut.search(query: query) { capturedResults.append($0) }
         
         action()
         
-        XCTAssertEqual(capturedErrors, [error], file: file, line: line)
+        XCTAssertEqual(capturedResults, [.failure(error)], file: file, line: line)
     }
     
     private class HTTPClientSpy:HTTPClient {
