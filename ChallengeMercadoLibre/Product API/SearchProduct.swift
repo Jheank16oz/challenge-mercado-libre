@@ -41,8 +41,8 @@ public final class SearchProduct{
         client.get(from: url, query:query) { result in
             switch result {
             case let .success(data, _):
-                if let _ = try? JSONSerialization.jsonObject(with: data){
-                    completion(.success([]))
+                if let root = try? JSONDecoder().decode(Root.self, from: data){
+                    completion(.success(root.results))
                 }else {
                     completion(.failure(.invalidData))
                 }
@@ -52,4 +52,8 @@ public final class SearchProduct{
             
         }
     }
+}
+
+private struct Root:Decodable {
+    let results:[ProductItem]
 }

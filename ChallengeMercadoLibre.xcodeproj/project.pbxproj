@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F57E40F27CBD93B00774A9E /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F57E40E27CBD93B00774A9E /* Product.swift */; };
+		3F57E40F27CBD93B00774A9E /* ProductItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F57E40E27CBD93B00774A9E /* ProductItem.swift */; };
 		3FC5BC0F27CA5EB50031615A /* ChallengeMercadoLibre.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC5BC0627CA5EB50031615A /* ChallengeMercadoLibre.framework */; };
 		3FC5BC1527CA5EB50031615A /* ChallengeMercadoLibre.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC5BC0927CA5EB50031615A /* ChallengeMercadoLibre.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3FC5BC2627CA68400031615A /* SearchProductTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5BC2527CA68400031615A /* SearchProductTests.swift */; };
@@ -25,7 +25,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3F57E40E27CBD93B00774A9E /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		3F57E40E27CBD93B00774A9E /* ProductItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItem.swift; sourceTree = "<group>"; };
 		3FC5BC0627CA5EB50031615A /* ChallengeMercadoLibre.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChallengeMercadoLibre.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FC5BC0927CA5EB50031615A /* ChallengeMercadoLibre.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChallengeMercadoLibre.h; sourceTree = "<group>"; };
 		3FC5BC0E27CA5EB50031615A /* ChallengeMercadoLibreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChallengeMercadoLibreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,7 +55,7 @@
 		3F57E40D27CBD8CC00774A9E /* Product Feature */ = {
 			isa = PBXGroup;
 			children = (
-				3F57E40E27CBD93B00774A9E /* Product.swift */,
+				3F57E40E27CBD93B00774A9E /* ProductItem.swift */,
 			);
 			path = "Product Feature";
 			sourceTree = "<group>";
@@ -215,7 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FC5BC2B27CA7B890031615A /* SearchProduct.swift in Sources */,
-				3F57E40F27CBD93B00774A9E /* Product.swift in Sources */,
+				3F57E40F27CBD93B00774A9E /* ProductItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

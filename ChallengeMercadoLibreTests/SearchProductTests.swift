@@ -80,6 +80,41 @@ class SearchProductTests:XCTestCase {
         })
     }
     
+    func test_search_deliversItemsOn200HTTPResponseWithJSONItems(){
+        let (sut, client) = makeSUT()
+        
+        let item1 = ProductItem(
+            id: UUID(),
+            title: "",
+            price: 0)
+        
+        let item1JSON = [
+            "id": item1.id.uuidString,
+            "title": item1.title,
+            "price": item1.price
+        ] as [String : Any]
+        
+        let item2 = ProductItem(
+            id: UUID(),
+            title: "A title",
+            price: 21999)
+        
+        let item2JSON = [
+            "id": item2.id.uuidString,
+            "title": item2.title,
+            "price": item2.price
+        ] as [String : Any]
+        
+        let resultsJSON = [
+            "results": [item1JSON, item2JSON]
+        ]
+        
+        expect(sut, toCompleteWith: .success([item1,item2]), when: {
+            let json = try! JSONSerialization.data(withJSONObject: resultsJSON)
+            client.complete(withStatusCode: 200, data: json)
+        })
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(url: URL = URL(string: "https://a-given-url.com")!) -> (sut:SearchProduct, client: HTTPClientSpy) {
