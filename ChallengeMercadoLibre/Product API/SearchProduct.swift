@@ -40,8 +40,12 @@ public final class SearchProduct{
     public func search(query:String, completion: @escaping (Result) -> Void) {
         client.get(from: url, query:query) { result in
             switch result {
-            case .success:
-                completion(.failure(.invalidData))
+            case let .success(data, _):
+                if let _ = try? JSONSerialization.jsonObject(with: data){
+                    completion(.success([]))
+                }else {
+                    completion(.failure(.invalidData))
+                }
             case .failure:
                 completion(.failure(.connectivity))
             }
