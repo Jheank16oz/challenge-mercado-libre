@@ -83,34 +83,20 @@ class SearchProductTests:XCTestCase {
     func test_search_deliversItemsOn200HTTPResponseWithJSONItems(){
         let (sut, client) = makeSUT()
         
-        let item1 = ProductItem(
+        let item1 = makeItem(
             id: UUID(),
             title: "",
             price: 0)
         
-        let item1JSON = [
-            "id": item1.id.uuidString,
-            "title": item1.title,
-            "price": item1.price
-        ] as [String : Any]
-        
-        let item2 = ProductItem(
+        let item2 = makeItem(
             id: UUID(),
             title: "A title",
             price: 21999)
         
-        let item2JSON = [
-            "id": item2.id.uuidString,
-            "title": item2.title,
-            "price": item2.price
-        ] as [String : Any]
+        let items = [item1.model,item2.model]
         
-        let resultsJSON = [
-            "results": [item1JSON, item2JSON]
-        ]
-        
-        expect(sut, toCompleteWith: .success([item1,item2]), when: {
-            let json = try! JSONSerialization.data(withJSONObject: resultsJSON)
+        expect(sut, toCompleteWith: .success(items), when: {
+            let json = makeItemsJSON([item1.json, item2.json])
             client.complete(withStatusCode: 200, data: json)
         })
     }
@@ -121,6 +107,23 @@ class SearchProductTests:XCTestCase {
         let client = HTTPClientSpy()
         let sut = SearchProduct(url: url, client: client)
         return (sut, client)
+    }
+    
+    private func makeItem(id: UUID, title: String, price:Int) -> (model:ProductItem, json:[String:Any]) {
+        let item = ProductItem(id: id, title: title, price: price)
+        
+        let json = [
+           "id": id.uuidString,
+           "title": title,
+           "price": price
+       ] as [String : Any]
+        
+        return (item, json)
+    }
+    
+    func makeItemsJSON(_ items: [[String:Any]]) -> Data {
+        let json = ["results": items]
+        return try! JSONSerialization.data(withJSONObject: json)
     }
     
     private func expect(_ sut: SearchProduct, query:String = "", toCompleteWith result: SearchProduct.Result, when action: ()-> Void, file: StaticString = #filePath, line: UInt = #line) {
