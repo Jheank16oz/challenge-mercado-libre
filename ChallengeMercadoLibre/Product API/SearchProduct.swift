@@ -40,8 +40,8 @@ public final class SearchProduct{
     public func search(query:String, completion: @escaping (Result) -> Void) {
         client.get(from: url, query:query) { result in
             switch result {
-            case let .success(data, _):
-                if let root = try? JSONDecoder().decode(Root.self, from: data){
+            case let .success(data, response):
+                if response.statusCode == 200, let root = try? JSONDecoder().decode(Root.self, from: data){
                     completion(.success(root.results))
                 }else {
                     completion(.failure(.invalidData))
