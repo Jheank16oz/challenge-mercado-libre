@@ -76,7 +76,7 @@ class SearchProductTests:XCTestCase {
         let (sut, client) = makeSUT()
         
         expect(sut, toCompleteWith: .success([]), when: {
-            let emptyListJSON = Data.init("{\"results\": []}".utf8)
+            let emptyListJSON = makeItemsJSON([])
             client.complete(withStatusCode: 200, data:emptyListJSON)
         })
     }
