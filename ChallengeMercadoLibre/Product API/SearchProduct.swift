@@ -42,7 +42,7 @@ public final class SearchProduct{
             switch result {
             case let .success(data, response):
                 if response.statusCode == 200, let root = try? JSONDecoder().decode(Root.self, from: data){
-                    completion(.success(root.results))
+                    completion(.success(root.results.map{ $0.item }))
                 }else {
                     completion(.failure(.invalidData))
                 }
@@ -55,5 +55,16 @@ public final class SearchProduct{
 }
 
 private struct Root:Decodable {
-    let results:[ProductItem]
+    let results:[Item]
+}
+
+private struct Item:Decodable {
+    
+    public let id:UUID
+    public let title: String
+    public let price: Int
+    
+    var item:ProductItem{
+        return ProductItem(id: id, title: title, price: price)
+    }
 }

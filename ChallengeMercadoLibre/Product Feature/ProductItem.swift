@@ -20,6 +20,4 @@ public struct ProductItem: Equatable {
     }
 }
 
-extension ProductItem:Decodable{
-    
-}
+
