@@ -64,6 +64,14 @@
 			path = "Product Feature";
 			sourceTree = "<group>";
 		};
+		3F994DE127CFB43F004D8A46 /* Product API */ = {
+			isa = PBXGroup;
+			children = (
+				3FC5BC2527CA68400031615A /* SearchProductTests.swift */,
+			);
+			path = "Product API";
+			sourceTree = "<group>";
+		};
 		3FC5BBFC27CA5EB50031615A = {
 			isa = PBXGroup;
 			children = (
@@ -95,7 +103,7 @@
 		3FC5BC1227CA5EB50031615A /* ChallengeMercadoLibreTests */ = {
 			isa = PBXGroup;
 			children = (
-				3FC5BC2527CA68400031615A /* SearchProductTests.swift */,
+				3F994DE127CFB43F004D8A46 /* Product API */,
 			);
 			path = ChallengeMercadoLibreTests;
 			sourceTree = "<group>";
