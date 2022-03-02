@@ -104,10 +104,20 @@ class SearchProductTests:XCTestCase {
     
     // MARK: - Helpers
     
-    private func makeSUT(url: URL = URL(string: "https://a-given-url.com")!) -> (sut:SearchProduct, client: HTTPClientSpy) {
+    private func makeSUT(url: URL = URL(string: "https://a-given-url.com")!, file: StaticString = #filePath, line: UInt = #line) -> (sut:SearchProduct, client: HTTPClientSpy) {
         let client = HTTPClientSpy()
         let sut = SearchProduct(url: url, client: client)
+        
+        trackForMemoryLeaks(sut)
+        trackForMemoryLeaks(client)
+        
         return (sut, client)
+    }
+    
+    private func trackForMemoryLeaks(_ instance: AnyObject, file: StaticString = #filePath, line: UInt = #line) {
+        addTeardownBlock {[weak instance] in
+            XCTAssertNil(instance, "Instance should have been deallocated. Potential memory leak", file: file, line: line)
+        }
     }
     
     private func makeItem(id: UUID, title: String, price:Int) -> (model:ProductItem, json:[String:Any]) {
