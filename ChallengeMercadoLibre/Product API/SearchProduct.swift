@@ -7,17 +7,6 @@
 
 import Foundation
 
-public enum HTTPClientResult {
-    case success(Data, HTTPURLResponse)
-    case failure(Error)
-}
-
-public protocol HTTPClient {
-    
-    func get(from url: URL, query:String, completion:@escaping (HTTPClientResult) -> Void)
-    
-}
-
 public final class SearchProduct{
     private let url: URL
     private let client: HTTPClient

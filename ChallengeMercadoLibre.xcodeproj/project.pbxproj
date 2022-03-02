@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3F57E40F27CBD93B00774A9E /* ProductItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F57E40E27CBD93B00774A9E /* ProductItem.swift */; };
+		3F994DDE27CFA2E9004D8A46 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F994DDD27CFA2E9004D8A46 /* HTTPClient.swift */; };
 		3FC5BC0F27CA5EB50031615A /* ChallengeMercadoLibre.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC5BC0627CA5EB50031615A /* ChallengeMercadoLibre.framework */; };
 		3FC5BC1527CA5EB50031615A /* ChallengeMercadoLibre.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC5BC0927CA5EB50031615A /* ChallengeMercadoLibre.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3FC5BC2627CA68400031615A /* SearchProductTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5BC2527CA68400031615A /* SearchProductTests.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		3F57E40E27CBD93B00774A9E /* ProductItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItem.swift; sourceTree = "<group>"; };
+		3F994DDD27CFA2E9004D8A46 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		3FC5BC0627CA5EB50031615A /* ChallengeMercadoLibre.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChallengeMercadoLibre.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FC5BC0927CA5EB50031615A /* ChallengeMercadoLibre.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChallengeMercadoLibre.h; sourceTree = "<group>"; };
 		3FC5BC0E27CA5EB50031615A /* ChallengeMercadoLibreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChallengeMercadoLibreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				3FC5BC2A27CA7B890031615A /* SearchProduct.swift */,
+				3F994DDD27CFA2E9004D8A46 /* HTTPClient.swift */,
 			);
 			path = "Product API";
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 			files = (
 				3FC5BC2B27CA7B890031615A /* SearchProduct.swift in Sources */,
 				3F57E40F27CBD93B00774A9E /* ProductItem.swift in Sources */,
+				3F994DDE27CFA2E9004D8A46 /* HTTPClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
