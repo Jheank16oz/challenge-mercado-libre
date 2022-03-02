@@ -27,7 +27,11 @@ public final class SearchProduct{
     }
     
     public func search(query:String, completion: @escaping (Result) -> Void) {
-        client.get(from: url, query:query) { result in
+        client.get(from: url, query:query) { [weak self] result in
+            guard self != nil else {
+                return
+            }
+            
             switch result {
             case let .success(data, response):
                 completion(ProductItemsMapper.map(data, from: response))

@@ -102,6 +102,19 @@ class SearchProductTests:XCTestCase {
         })
     }
     
+    func test_search_doesNotDeliverResultAfterSUTInstanceHasBeenDeallocated() {
+        let client = HTTPClientSpy()
+        let url = URL(string: "http://any-url.com")!
+        var sut: SearchProduct? = SearchProduct(url: url, client: client)
+        
+        var capturedResults = [SearchProduct.Result]()
+        sut?.search(query:"") { capturedResults.append($0) }
+        
+        sut = nil
+        client.complete(withStatusCode: 200, data: makeItemsJSON([]))
+        XCTAssertTrue(capturedResults.isEmpty)
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(url: URL = URL(string: "https://a-given-url.com")!, file: StaticString = #filePath, line: UInt = #line) -> (sut:SearchProduct, client: HTTPClientSpy) {
