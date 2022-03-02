@@ -30,12 +30,7 @@ public final class SearchProduct{
         client.get(from: url, query:query) { result in
             switch result {
             case let .success(data, response):
-                do {
-                    let items = try ProductItemsMapper.map(data, response)
-                    completion(.success(items))
-                } catch {
-                    completion(.failure(.invalidData))
-                }
+                completion(ProductItemsMapper.map(data, from: response))
             case .failure:
                 completion(.failure(.connectivity))
             }

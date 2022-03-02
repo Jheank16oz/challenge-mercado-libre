@@ -11,6 +11,10 @@ internal final class ProductItemsMapper {
     
     private struct Root:Decodable {
         let results:[Item]
+        
+        var products:[ProductItem] {
+            return results.map { $0.item}
+        }
     }
 
     private struct Item:Decodable {
@@ -25,11 +29,13 @@ internal final class ProductItemsMapper {
     }
     private static var OK_200: Int { return 200 }
     
-    internal static func map(_ data:Data, _ response: HTTPURLResponse) throws -> [ProductItem]{
-        guard response.statusCode == OK_200 else {
-            throw SearchProduct.Error.invalidData
+    internal static func map(_ data:Data, from response: HTTPURLResponse) -> SearchProduct.Result {
+        guard response.statusCode == OK_200,
+              let root = try? JSONDecoder().decode(Root.self, from: data) else {
+            return .failure(.invalidData)
         }
-        let root = try JSONDecoder().decode(Root.self, from: data)
-        return root.results.map { $0.item}
+        
+        return .success(root.products)
+        
     }
 }
