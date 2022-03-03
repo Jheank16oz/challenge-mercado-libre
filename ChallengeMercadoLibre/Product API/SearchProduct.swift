@@ -26,8 +26,9 @@ public final class SearchProduct{
         self.client = client
     }
     
-    public func search(query:String, completion: @escaping (Result) -> Void) {
-        client.get(from: url, query:query) { [weak self] result in
+    public func search(query:URLQueryItem, completion: @escaping (Result) -> Void) {
+        let urlWithQueries = url.appending(query)
+        client.get(from: urlWithQueries) { [weak self] result in
             guard self != nil else {
                 return
             }
@@ -40,5 +41,21 @@ public final class SearchProduct{
             }
             
         }
+    }
+    
+    
+}
+
+private extension URL {
+
+    func appending(_ queryItem: URLQueryItem) -> URL {
+
+        guard var urlComponents = URLComponents(string: absoluteString) else { return absoluteURL }
+
+        var queryItems: [URLQueryItem] = urlComponents.queryItems ??  []
+        queryItems.append(queryItem)
+
+        urlComponents.queryItems = queryItems
+        return urlComponents.url!
     }
 }

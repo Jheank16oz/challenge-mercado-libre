@@ -15,30 +15,29 @@ class SearchProductTests:XCTestCase {
         let (_, client) = makeSUT()
         
         XCTAssertTrue(client.requestedURLs.isEmpty)
-        XCTAssertTrue(client.requestedQueries.isEmpty)
     }
     
     func test_search_requestsDataFromURLAndQuery(){
-        let url = URL(string: "https://a-given-url.com")!
-        let query = "any query"
-        let (sut, client) = makeSUT(url: url)
+        
+        
+        let (url, query) = makeURL()
+
+        let (sut, client) = makeSUT()
         
         sut.search(query: query){ _ in }
         
         XCTAssertEqual(client.requestedURLs,[url])
-        XCTAssertEqual(client.requestedQueries, [query])
     }
     
     func test_searchTwice_requestsDataFromURLAndQueryTwice(){
-        let url = URL(string: "https://a-given-url.com")!
-        let query = "any query"
-        let (sut, client) = makeSUT(url: url)
+        let (url, query) = makeURL()
+        let (sut, client) = makeSUT()
         
         sut.search(query: query){ _ in }
         sut.search(query: query){ _ in }
         
         XCTAssertEqual(client.requestedURLs, [url, url])
-        XCTAssertEqual(client.requestedQueries, [query, query])
+        
     }
     
     func test_seatch_deliversErrorOnClientError(){
@@ -104,11 +103,11 @@ class SearchProductTests:XCTestCase {
     
     func test_search_doesNotDeliverResultAfterSUTInstanceHasBeenDeallocated() {
         let client = HTTPClientSpy()
-        let url = URL(string: "http://any-url.com")!
+        let (url, query) = makeURL()
         var sut: SearchProduct? = SearchProduct(url: url, client: client)
         
         var capturedResults = [SearchProduct.Result]()
-        sut?.search(query:"") { capturedResults.append($0) }
+        sut?.search(query:query) { capturedResults.append($0) }
         
         sut = nil
         client.complete(withStatusCode: 200, data: makeItemsJSON([]))
@@ -125,6 +124,13 @@ class SearchProductTests:XCTestCase {
         trackForMemoryLeaks(client)
         
         return (sut, client)
+    }
+    
+    private func makeURL() -> (URL, URLQueryItem){
+        var urlComponents = URLComponents(string: "https://a-given-url.com")!
+        let query = URLQueryItem(name: "q", value:"any query")
+        urlComponents.queryItems = [query]
+        return (urlComponents.url ?? URL(string: "")!, query)
     }
     
     private func makeItem(id: UUID, title: String, price:Int) -> (model:ProductItem, json:[String:Any]) {
@@ -144,7 +150,7 @@ class SearchProductTests:XCTestCase {
         return try! JSONSerialization.data(withJSONObject: json)
     }
     
-    private func expect(_ sut: SearchProduct, query:String = "", toCompleteWith result: SearchProduct.Result, when action: ()-> Void, file: StaticString = #filePath, line: UInt = #line) {
+    private func expect(_ sut: SearchProduct, query:URLQueryItem = URLQueryItem(name: "q", value: ""), toCompleteWith result: SearchProduct.Result, when action: ()-> Void, file: StaticString = #filePath, line: UInt = #line) {
         var capturedResults = [SearchProduct.Result]()
         sut.search(query: query) { capturedResults.append($0) }
         
@@ -154,17 +160,14 @@ class SearchProductTests:XCTestCase {
     }
     
     private class HTTPClientSpy:HTTPClient {
-        private var messages = [(url: URL, query:String, completion:(HTTPClientResult) -> Void)]()
+        private var messages = [(url: URL, completion:(HTTPClientResult) -> Void)]()
         
         var requestedURLs:[URL]{
             return messages.map{ $0.url }
         }
-        var requestedQueries:[String]{
-            return messages.map{ $0.query }
-        }
         
-        func get(from url: URL, query: String, completion: @escaping (HTTPClientResult) -> Void) {
-            messages.append((url, query, completion))
+        func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) {
+            messages.append((url, completion))
         }
         
         func complete(with error: Error, at index: Int = 0){
