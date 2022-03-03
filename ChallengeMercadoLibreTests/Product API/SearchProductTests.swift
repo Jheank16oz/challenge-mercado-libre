@@ -18,10 +18,7 @@ class SearchProductTests:XCTestCase {
     }
     
     func test_search_requestsDataFromURLAndQuery(){
-        
-        
         let (url, query) = makeURL()
-
         let (sut, client) = makeSUT()
         
         sut.search(query: query){ _ in }
