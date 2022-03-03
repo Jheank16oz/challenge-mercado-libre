@@ -127,12 +127,6 @@ class SearchProductTests:XCTestCase {
         return (sut, client)
     }
     
-    private func trackForMemoryLeaks(_ instance: AnyObject, file: StaticString = #filePath, line: UInt = #line) {
-        addTeardownBlock {[weak instance] in
-            XCTAssertNil(instance, "Instance should have been deallocated. Potential memory leak", file: file, line: line)
-        }
-    }
-    
     private func makeItem(id: UUID, title: String, price:Int) -> (model:ProductItem, json:[String:Any]) {
         let item = ProductItem(id: id, title: title, price: price)
         
