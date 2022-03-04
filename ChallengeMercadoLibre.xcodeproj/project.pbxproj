@@ -13,6 +13,8 @@
 		3F79EC5F27D0FBB6000D5B1F /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F79EC5E27D0FBB6000D5B1F /* XCTestCase+MemoryLeakTracking.swift */; };
 		3F994DDE27CFA2E9004D8A46 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F994DDD27CFA2E9004D8A46 /* HTTPClient.swift */; };
 		3F994DE027CFA364004D8A46 /* ProductItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F994DDF27CFA364004D8A46 /* ProductItemsMapper.swift */; };
+		3FB3B9D927D250F300738BAB /* ChallengeMercadoLibre.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC5BC0627CA5EB50031615A /* ChallengeMercadoLibre.framework */; };
+		3FB3B9E027D2513000738BAB /* ProductAPIEndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB3B9DF27D2513000738BAB /* ProductAPIEndToEndTests.swift */; };
 		3FC5BC0F27CA5EB50031615A /* ChallengeMercadoLibre.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC5BC0627CA5EB50031615A /* ChallengeMercadoLibre.framework */; };
 		3FC5BC1527CA5EB50031615A /* ChallengeMercadoLibre.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC5BC0927CA5EB50031615A /* ChallengeMercadoLibre.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3FC5BC2627CA68400031615A /* SearchProductTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5BC2527CA68400031615A /* SearchProductTests.swift */; };
@@ -20,6 +22,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3FB3B9DA27D250F300738BAB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3FC5BBFD27CA5EB50031615A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3FC5BC0527CA5EB50031615A;
+			remoteInfo = ChallengeMercadoLibre;
+		};
 		3FC5BC1027CA5EB50031615A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3FC5BBFD27CA5EB50031615A /* Project object */;
@@ -36,6 +45,8 @@
 		3F79EC5E27D0FBB6000D5B1F /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		3F994DDD27CFA2E9004D8A46 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		3F994DDF27CFA364004D8A46 /* ProductItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItemsMapper.swift; sourceTree = "<group>"; };
+		3FB3B9D527D250F300738BAB /* ProductAPIEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProductAPIEndToEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FB3B9DF27D2513000738BAB /* ProductAPIEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAPIEndToEndTests.swift; sourceTree = "<group>"; };
 		3FC5BC0627CA5EB50031615A /* ChallengeMercadoLibre.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChallengeMercadoLibre.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FC5BC0927CA5EB50031615A /* ChallengeMercadoLibre.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChallengeMercadoLibre.h; sourceTree = "<group>"; };
 		3FC5BC0E27CA5EB50031615A /* ChallengeMercadoLibreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChallengeMercadoLibreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +55,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3FB3B9D227D250F300738BAB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FB3B9D927D250F300738BAB /* ChallengeMercadoLibre.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3FC5BC0327CA5EB50031615A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -87,11 +106,20 @@
 			path = "Product API";
 			sourceTree = "<group>";
 		};
+		3FB3B9D627D250F300738BAB /* ProductAPIEndToEndTests */ = {
+			isa = PBXGroup;
+			children = (
+				3FB3B9DF27D2513000738BAB /* ProductAPIEndToEndTests.swift */,
+			);
+			path = ProductAPIEndToEndTests;
+			sourceTree = "<group>";
+		};
 		3FC5BBFC27CA5EB50031615A = {
 			isa = PBXGroup;
 			children = (
 				3FC5BC0827CA5EB50031615A /* ChallengeMercadoLibre */,
 				3FC5BC1227CA5EB50031615A /* ChallengeMercadoLibreTests */,
+				3FB3B9D627D250F300738BAB /* ProductAPIEndToEndTests */,
 				3FC5BC0727CA5EB50031615A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,6 +129,7 @@
 			children = (
 				3FC5BC0627CA5EB50031615A /* ChallengeMercadoLibre.framework */,
 				3FC5BC0E27CA5EB50031615A /* ChallengeMercadoLibreTests.xctest */,
+				3FB3B9D527D250F300738BAB /* ProductAPIEndToEndTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -149,6 +178,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		3FB3B9D427D250F300738BAB /* ProductAPIEndToEndTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3FB3B9DE27D250F300738BAB /* Build configuration list for PBXNativeTarget "ProductAPIEndToEndTests" */;
+			buildPhases = (
+				3FB3B9D127D250F300738BAB /* Sources */,
+				3FB3B9D227D250F300738BAB /* Frameworks */,
+				3FB3B9D327D250F300738BAB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3FB3B9DB27D250F300738BAB /* PBXTargetDependency */,
+			);
+			name = ProductAPIEndToEndTests;
+			productName = SearchAPIEndToEndTests;
+			productReference = 3FB3B9D527D250F300738BAB /* ProductAPIEndToEndTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		3FC5BC0527CA5EB50031615A /* ChallengeMercadoLibre */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3FC5BC1827CA5EB50031615A /* Build configuration list for PBXNativeTarget "ChallengeMercadoLibre" */;
@@ -195,6 +242,10 @@
 				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
+					3FB3B9D427D250F300738BAB = {
+						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1300;
+					};
 					3FC5BC0527CA5EB50031615A = {
 						CreatedOnToolsVersion = 13.0;
 						LastSwiftMigration = 1300;
@@ -219,11 +270,19 @@
 			targets = (
 				3FC5BC0527CA5EB50031615A /* ChallengeMercadoLibre */,
 				3FC5BC0D27CA5EB50031615A /* ChallengeMercadoLibreTests */,
+				3FB3B9D427D250F300738BAB /* ProductAPIEndToEndTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3FB3B9D327D250F300738BAB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3FC5BC0427CA5EB50031615A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -241,6 +300,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3FB3B9D127D250F300738BAB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FB3B9E027D2513000738BAB /* ProductAPIEndToEndTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3FC5BC0227CA5EB50031615A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -266,6 +333,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3FB3B9DB27D250F300738BAB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3FC5BC0527CA5EB50031615A /* ChallengeMercadoLibre */;
+			targetProxy = 3FB3B9DA27D250F300738BAB /* PBXContainerItemProxy */;
+		};
 		3FC5BC1127CA5EB50031615A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3FC5BC0527CA5EB50031615A /* ChallengeMercadoLibre */;
@@ -274,6 +346,51 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		3FB3B9DC27D250F300738BAB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZTBH29ZRG3;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.veritran.SearchAPIEndToEndTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3FB3B9DD27D250F300738BAB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZTBH29ZRG3;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.veritran.SearchAPIEndToEndTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		3FC5BC1627CA5EB50031615A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -502,6 +619,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3FB3B9DE27D250F300738BAB /* Build configuration list for PBXNativeTarget "ProductAPIEndToEndTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FB3B9DC27D250F300738BAB /* Debug */,
+				3FB3B9DD27D250F300738BAB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3FC5BC0027CA5EB50031615A /* Build configuration list for PBXProject "ChallengeMercadoLibre" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

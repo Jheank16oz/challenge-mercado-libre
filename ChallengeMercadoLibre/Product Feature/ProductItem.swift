@@ -9,11 +9,11 @@ import Foundation
 
 public struct ProductItem: Equatable {
     
-    public let id:UUID
+    public let id:String
     public let title: String
-    public let price: Int
+    public let price: Double
     
-    public init(id:UUID , title:String, price: Int) {
+    public init(id:String , title:String, price: Double) {
         self.id = id
         self.title = title
         self.price = price

@@ -19,9 +19,9 @@ internal final class ProductItemsMapper {
 
     private struct Item:Decodable {
         
-        public let id:UUID
+        public let id:String
         public let title: String
-        public let price: Int
+        public let price: Double
         
         var item:ProductItem{
             return ProductItem(id: id, title: title, price: price)

@@ -81,12 +81,12 @@ class SearchProductTests:XCTestCase {
         let (sut, client) = makeSUT()
         
         let item1 = makeItem(
-            id: UUID(),
+            id: "",
             title: "",
             price: 0)
         
         let item2 = makeItem(
-            id: UUID(),
+            id: "",
             title: "A title",
             price: 21999)
         
@@ -130,11 +130,11 @@ class SearchProductTests:XCTestCase {
         return (urlComponents.url ?? URL(string: "")!, query)
     }
     
-    private func makeItem(id: UUID, title: String, price:Int) -> (model:ProductItem, json:[String:Any]) {
+    private func makeItem(id: String, title: String, price:Double) -> (model:ProductItem, json:[String:Any]) {
         let item = ProductItem(id: id, title: title, price: price)
         
         let json = [
-           "id": id.uuidString,
+           "id": id,
            "title": title,
            "price": price
        ] as [String : Any]
