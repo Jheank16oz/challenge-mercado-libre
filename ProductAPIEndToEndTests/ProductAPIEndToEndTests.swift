@@ -28,7 +28,7 @@ class ProductAPIEndToEndTests:XCTestCase {
         
         switch receivedResult {
         case let .success(items)?:
-            XCTAssertEqual(items.count, 8, "Expected 8 items in the test account feed")
+            XCTAssertEqual(items.count, PAGING_LIMIT, "Expected \(PAGING_LIMIT) items in the test account feed")
             
         case let .failure(error)?:
             XCTFail("Expected succesful product result, got \(error) instead")
@@ -37,5 +37,10 @@ class ProductAPIEndToEndTests:XCTestCase {
             XCTFail("Expected successful product result, got not not result instead")
         }
         
+    }
+    
+    // MARK: Helper
+    var PAGING_LIMIT:Int {
+        return 50
     }
 }
