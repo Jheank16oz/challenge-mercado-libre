@@ -147,9 +147,9 @@
 				3F8A693427D38CAA00F63B50 /* IOS_UIApp.swift */,
 				3F8A693627D38CAA00F63B50 /* SearchView.swift */,
 				3F8A694827D3AF8300F63B50 /* DetailView.swift */,
+				3F8A694027D394D500F63B50 /* SearchViewModel.swift */,
 				3F8A693827D38CAC00F63B50 /* Assets.xcassets */,
 				3F8A693A27D38CAC00F63B50 /* Preview Content */,
-				3F8A694027D394D500F63B50 /* SearchViewModel.swift */,
 			);
 			path = "IOS-UI";
 			sourceTree = "<group>";

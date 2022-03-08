@@ -12,6 +12,7 @@ struct SearchView: View {
     @State var search: String = ""
     @State private var selectedItem: ProductItem? = nil
     @StateObject var searchViewModel = SearchViewModel()
+    
     var body: some View {
         VStack {
             Text("Ingresa una busqueda")
@@ -25,6 +26,12 @@ struct SearchView: View {
                 .onSubmit {
                     searchViewModel.search(search:$search.wrappedValue)
                 }
+            if searchViewModel.progress {
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                    .frame(height: 50)
+                    .scaleEffect(2)
+            }
             List($searchViewModel.products){ $product in
                 NavigationLink(
                     destination: DetailView(detailItem: $product),
