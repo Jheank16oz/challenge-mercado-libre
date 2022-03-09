@@ -13,6 +13,7 @@ final class SearchViewModel:ObservableObject {
     
     @Published var products:[ProductItem] = []
     @Published var progress:Bool = false
+    @Published var errorMessage:String = ""
     private let searchProduct:SearchProduct
     
     
@@ -25,18 +26,36 @@ final class SearchViewModel:ObservableObject {
     
     func search(search:String){
         let queryItem = URLQueryItem(name: "q", value: search)
-        setProgress(true)
-        searchProduct.search(query: queryItem) { result in
+        progress(true)
+        searchProduct.search(query: queryItem) {[weak self] result in
+            
+            guard self != nil else {
+                return
+            }
+            
             switch result {
             case .success(let array):
-                self.publishProducts(products: array)
-                self.setProgress(false)
+                self?.success(array)
+                
             case .failure(let error):
-                print(error)
-                self.setProgress(false)
+                self?.failure(error)
             }
+            
+            self?.progress(false)
         }
         
+    }
+    
+    func success(_ array:[ProductItem]){
+        publishProducts(products: array)
+    }
+    
+    func failure(_ err: SearchProduct.Error){
+        if err == .connectivity {
+            error("Error de conexión")
+        }else {
+            error("Tenemos problemas para obtener la información")
+        }
     }
     
     
@@ -46,9 +65,15 @@ final class SearchViewModel:ObservableObject {
         }
     }
     
-    func setProgress(_ value: Bool) {
+    func progress(_ value: Bool) {
         DispatchQueue.main.async {
             self.progress = value
+        }
+    }
+    
+    func error(_ value: String) {
+        DispatchQueue.main.async {
+            self.errorMessage = value
         }
     }
 }
