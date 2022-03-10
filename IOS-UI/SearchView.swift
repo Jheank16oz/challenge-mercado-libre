@@ -9,9 +9,8 @@ import SwiftUI
 import ChallengeMercadoLibre
 
 struct SearchView: View {
-    @State var search: String = ""
     @State private var selectedItem: ProductItem? = nil
-    @StateObject var searchViewModel = SearchViewModel()
+    @StateObject var searchVM = SearchViewModel()
     
     var body: some View {
         VStack {
@@ -19,20 +18,20 @@ struct SearchView: View {
                 .underline()
                 .foregroundColor(.gray)
                 .padding(.horizontal, 16)
-            TextField("Busqueda", text: $search)
+            TextField("Busqueda", text: $searchVM.searchQuery)
                 .foregroundColor(.gray)
                 .frame(height: 50)
                 .overlay(RoundedRectangle(cornerRadius: 8).stroke())
                 .onSubmit {
-                    searchViewModel.search(search:$search.wrappedValue)
+                    searchVM.search()
                 }
-            if searchViewModel.progress {
+            if searchVM.progress {
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle(tint: .blue))
                     .frame(height: 50)
                     .scaleEffect(2)
             }
-            List($searchViewModel.products){ $product in
+            List($searchVM.products){ $product in
                 NavigationLink(
                     destination: DetailView(detailItem: $product),
                     tag: product,
@@ -44,7 +43,18 @@ struct SearchView: View {
                          """).allowsHitTesting(false)
                 }
             }
-        }
+        }.actionSheet(isPresented: $searchVM.hasError, content: {
+            ActionSheet(
+                title: Text(searchVM.errorMessage),
+                buttons: [
+                    .default(Text("Reintentar")) {
+                        searchVM.retry()
+                    },
+                    .cancel(){
+                        searchVM.cancelError()
+                    }
+                ])
+        })
         .padding()
         .navigationBarTitleDisplayMode(.inline)
     }

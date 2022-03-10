@@ -11,9 +11,11 @@ import UIKit
 
 final class SearchViewModel:ObservableObject {
     
+    @Published var searchQuery: String = ""
     @Published var products:[ProductItem] = []
     @Published var progress:Bool = false
     @Published var errorMessage:String = ""
+    @Published var hasError = false
     private let searchProduct:SearchProduct
     
     
@@ -24,8 +26,8 @@ final class SearchViewModel:ObservableObject {
     }
     
     
-    func search(search:String){
-        let queryItem = URLQueryItem(name: "q", value: search)
+    func search(){
+        let queryItem = URLQueryItem(name: "q", value: searchQuery)
         progress(true)
         searchProduct.search(query: queryItem) {[weak self] result in
             
@@ -58,7 +60,6 @@ final class SearchViewModel:ObservableObject {
         }
     }
     
-    
     func publishProducts(products:[ProductItem]){
         DispatchQueue.main.async{
             self.products = products
@@ -74,6 +75,16 @@ final class SearchViewModel:ObservableObject {
     func error(_ value: String) {
         DispatchQueue.main.async {
             self.errorMessage = value
+            self.hasError = true
         }
+    }
+    
+    func retry(){
+        self.search()
+    }
+    
+    func cancelError(){
+        self.hasError = false
+        self.errorMessage = ""
     }
 }
