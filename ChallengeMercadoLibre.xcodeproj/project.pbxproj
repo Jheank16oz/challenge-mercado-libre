@@ -16,14 +16,14 @@
 		3F8A693927D38CAC00F63B50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F8A693827D38CAC00F63B50 /* Assets.xcassets */; };
 		3F8A693C27D38CAC00F63B50 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F8A693B27D38CAC00F63B50 /* Preview Assets.xcassets */; };
 		3F8A694127D394D500F63B50 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A694027D394D500F63B50 /* SearchViewModel.swift */; };
-		3F8A694327D3958800F63B50 /* ChallengeMercadoLibre.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC5BC0627CA5EB50031615A /* ChallengeMercadoLibre.framework */; };
-		3F8A694427D3958800F63B50 /* ChallengeMercadoLibre.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC5BC0627CA5EB50031615A /* ChallengeMercadoLibre.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3F8A694327D3958800F63B50 /* Product.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC5BC0627CA5EB50031615A /* Product.framework */; };
+		3F8A694427D3958800F63B50 /* Product.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC5BC0627CA5EB50031615A /* Product.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3F8A694927D3AF8300F63B50 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A694827D3AF8300F63B50 /* DetailView.swift */; };
 		3F994DDE27CFA2E9004D8A46 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F994DDD27CFA2E9004D8A46 /* HTTPClient.swift */; };
 		3F994DE027CFA364004D8A46 /* ProductItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F994DDF27CFA364004D8A46 /* ProductItemsMapper.swift */; };
-		3FB3B9D927D250F300738BAB /* ChallengeMercadoLibre.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC5BC0627CA5EB50031615A /* ChallengeMercadoLibre.framework */; };
+		3FB3B9D927D250F300738BAB /* Product.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC5BC0627CA5EB50031615A /* Product.framework */; };
 		3FB3B9E027D2513000738BAB /* ProductAPIEndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB3B9DF27D2513000738BAB /* ProductAPIEndToEndTests.swift */; };
-		3FC5BC0F27CA5EB50031615A /* ChallengeMercadoLibre.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC5BC0627CA5EB50031615A /* ChallengeMercadoLibre.framework */; };
+		3FC5BC0F27CA5EB50031615A /* Product.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC5BC0627CA5EB50031615A /* Product.framework */; };
 		3FC5BC1527CA5EB50031615A /* ChallengeMercadoLibre.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC5BC0927CA5EB50031615A /* ChallengeMercadoLibre.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3FC5BC2627CA68400031615A /* SearchProductTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5BC2527CA68400031615A /* SearchProductTests.swift */; };
 		3FC5BC2B27CA7B890031615A /* SearchProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5BC2A27CA7B890031615A /* SearchProduct.swift */; };
@@ -60,7 +60,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3F8A694427D3958800F63B50 /* ChallengeMercadoLibre.framework in Embed Frameworks */,
+				3F8A694427D3958800F63B50 /* Product.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,9 +83,9 @@
 		3F994DDF27CFA364004D8A46 /* ProductItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItemsMapper.swift; sourceTree = "<group>"; };
 		3FB3B9D527D250F300738BAB /* ProductAPIEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProductAPIEndToEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FB3B9DF27D2513000738BAB /* ProductAPIEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAPIEndToEndTests.swift; sourceTree = "<group>"; };
-		3FC5BC0627CA5EB50031615A /* ChallengeMercadoLibre.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChallengeMercadoLibre.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FC5BC0627CA5EB50031615A /* Product.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Product.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FC5BC0927CA5EB50031615A /* ChallengeMercadoLibre.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChallengeMercadoLibre.h; sourceTree = "<group>"; };
-		3FC5BC0E27CA5EB50031615A /* ChallengeMercadoLibreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChallengeMercadoLibreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FC5BC0E27CA5EB50031615A /* ProductTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProductTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FC5BC2527CA68400031615A /* SearchProductTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProductTests.swift; sourceTree = "<group>"; };
 		3FC5BC2A27CA7B890031615A /* SearchProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProduct.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,7 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F8A694327D3958800F63B50 /* ChallengeMercadoLibre.framework in Frameworks */,
+				3F8A694327D3958800F63B50 /* Product.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,7 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FB3B9D927D250F300738BAB /* ChallengeMercadoLibre.framework in Frameworks */,
+				3FB3B9D927D250F300738BAB /* Product.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,7 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FC5BC0F27CA5EB50031615A /* ChallengeMercadoLibre.framework in Frameworks */,
+				3FC5BC0F27CA5EB50031615A /* Product.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,8 +189,8 @@
 		3FC5BBFC27CA5EB50031615A = {
 			isa = PBXGroup;
 			children = (
-				3FC5BC0827CA5EB50031615A /* ChallengeMercadoLibre */,
-				3FC5BC1227CA5EB50031615A /* ChallengeMercadoLibreTests */,
+				3FC5BC0827CA5EB50031615A /* Product */,
+				3FC5BC1227CA5EB50031615A /* ProductTests */,
 				3FB3B9D627D250F300738BAB /* ProductAPIEndToEndTests */,
 				3F8A693327D38CAA00F63B50 /* IOS-UI */,
 				3FC5BC0727CA5EB50031615A /* Products */,
@@ -201,31 +201,31 @@
 		3FC5BC0727CA5EB50031615A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3FC5BC0627CA5EB50031615A /* ChallengeMercadoLibre.framework */,
-				3FC5BC0E27CA5EB50031615A /* ChallengeMercadoLibreTests.xctest */,
+				3FC5BC0627CA5EB50031615A /* Product.framework */,
+				3FC5BC0E27CA5EB50031615A /* ProductTests.xctest */,
 				3FB3B9D527D250F300738BAB /* ProductAPIEndToEndTests.xctest */,
 				3F8A693227D38CAA00F63B50 /* IOS-UI.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3FC5BC0827CA5EB50031615A /* ChallengeMercadoLibre */ = {
+		3FC5BC0827CA5EB50031615A /* Product */ = {
 			isa = PBXGroup;
 			children = (
 				3F57E40D27CBD8CC00774A9E /* Product Feature */,
 				3FC5BC2927CA7B620031615A /* Product API */,
 				3FC5BC0927CA5EB50031615A /* ChallengeMercadoLibre.h */,
 			);
-			path = ChallengeMercadoLibre;
+			path = Product;
 			sourceTree = "<group>";
 		};
-		3FC5BC1227CA5EB50031615A /* ChallengeMercadoLibreTests */ = {
+		3FC5BC1227CA5EB50031615A /* ProductTests */ = {
 			isa = PBXGroup;
 			children = (
 				3F79EC5D27D0FB98000D5B1F /* Helpers */,
 				3F994DE127CFB43F004D8A46 /* Product API */,
 			);
-			path = ChallengeMercadoLibreTests;
+			path = ProductTests;
 			sourceTree = "<group>";
 		};
 		3FC5BC2927CA7B620031615A /* Product API */ = {
@@ -290,9 +290,9 @@
 			productReference = 3FB3B9D527D250F300738BAB /* ProductAPIEndToEndTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		3FC5BC0527CA5EB50031615A /* ChallengeMercadoLibre */ = {
+		3FC5BC0527CA5EB50031615A /* Product */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3FC5BC1827CA5EB50031615A /* Build configuration list for PBXNativeTarget "ChallengeMercadoLibre" */;
+			buildConfigurationList = 3FC5BC1827CA5EB50031615A /* Build configuration list for PBXNativeTarget "Product" */;
 			buildPhases = (
 				3FC5BC0127CA5EB50031615A /* Headers */,
 				3FC5BC0227CA5EB50031615A /* Sources */,
@@ -303,14 +303,14 @@
 			);
 			dependencies = (
 			);
-			name = ChallengeMercadoLibre;
+			name = Product;
 			productName = ChallengeMercadoLibre;
-			productReference = 3FC5BC0627CA5EB50031615A /* ChallengeMercadoLibre.framework */;
+			productReference = 3FC5BC0627CA5EB50031615A /* Product.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		3FC5BC0D27CA5EB50031615A /* ChallengeMercadoLibreTests */ = {
+		3FC5BC0D27CA5EB50031615A /* ProductTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3FC5BC1B27CA5EB50031615A /* Build configuration list for PBXNativeTarget "ChallengeMercadoLibreTests" */;
+			buildConfigurationList = 3FC5BC1B27CA5EB50031615A /* Build configuration list for PBXNativeTarget "ProductTests" */;
 			buildPhases = (
 				3FC5BC0A27CA5EB50031615A /* Sources */,
 				3FC5BC0B27CA5EB50031615A /* Frameworks */,
@@ -321,9 +321,9 @@
 			dependencies = (
 				3FC5BC1127CA5EB50031615A /* PBXTargetDependency */,
 			);
-			name = ChallengeMercadoLibreTests;
+			name = ProductTests;
 			productName = ChallengeMercadoLibreTests;
-			productReference = 3FC5BC0E27CA5EB50031615A /* ChallengeMercadoLibreTests.xctest */;
+			productReference = 3FC5BC0E27CA5EB50031615A /* ProductTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -365,8 +365,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3FC5BC0527CA5EB50031615A /* ChallengeMercadoLibre */,
-				3FC5BC0D27CA5EB50031615A /* ChallengeMercadoLibreTests */,
+				3FC5BC0527CA5EB50031615A /* Product */,
+				3FC5BC0D27CA5EB50031615A /* ProductTests */,
 				3FB3B9D427D250F300738BAB /* ProductAPIEndToEndTests */,
 				3F8A693127D38CAA00F63B50 /* IOS-UI */,
 			);
@@ -453,17 +453,17 @@
 /* Begin PBXTargetDependency section */
 		3F8A694627D3958800F63B50 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3FC5BC0527CA5EB50031615A /* ChallengeMercadoLibre */;
+			target = 3FC5BC0527CA5EB50031615A /* Product */;
 			targetProxy = 3F8A694527D3958800F63B50 /* PBXContainerItemProxy */;
 		};
 		3FB3B9DB27D250F300738BAB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3FC5BC0527CA5EB50031615A /* ChallengeMercadoLibre */;
+			target = 3FC5BC0527CA5EB50031615A /* Product */;
 			targetProxy = 3FB3B9DA27D250F300738BAB /* PBXContainerItemProxy */;
 		};
 		3FC5BC1127CA5EB50031615A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3FC5BC0527CA5EB50031615A /* ChallengeMercadoLibre */;
+			target = 3FC5BC0527CA5EB50031615A /* Product */;
 			targetProxy = 3FC5BC1027CA5EB50031615A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -829,7 +829,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3FC5BC1827CA5EB50031615A /* Build configuration list for PBXNativeTarget "ChallengeMercadoLibre" */ = {
+		3FC5BC1827CA5EB50031615A /* Build configuration list for PBXNativeTarget "Product" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3FC5BC1927CA5EB50031615A /* Debug */,
@@ -838,7 +838,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3FC5BC1B27CA5EB50031615A /* Build configuration list for PBXNativeTarget "ChallengeMercadoLibreTests" */ = {
+		3FC5BC1B27CA5EB50031615A /* Build configuration list for PBXNativeTarget "ProductTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3FC5BC1C27CA5EB50031615A /* Debug */,
