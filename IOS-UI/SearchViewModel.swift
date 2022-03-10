@@ -11,14 +11,28 @@ import UIKit
 
 final class SearchViewModel:ObservableObject {
     
-    @Published var searchQuery: String = ""
+    // Model
+    @Published var searchQuery: String = "" {
+        didSet{
+            self.emptyResult = false
+        }
+    }
     @Published var products:[ProductItem] = []
     @Published var progress:Bool = false
     @Published var errorMessage:String = ""
     @Published var hasError = false
+    @Published var emptyResult = false
+    
+    var emptyMessage:String {
+        if searchQuery.isEmpty {
+            return "Ingrese una busqueda"
+        }
+        return #"No se encontraron resultados de busqueda para "\#(searchQuery)""#
+    }
+    
+    // End Model
+    
     private let searchProduct:SearchProduct
-    
-    
     init(){
         let url:URL = URL(string: "https://api.mercadolibre.com/sites/MLA/search")!
         let client = URLSessionHTTPClient()
@@ -63,6 +77,7 @@ final class SearchViewModel:ObservableObject {
     func publishProducts(products:[ProductItem]){
         DispatchQueue.main.async{
             self.products = products
+            self.emptyResult = self.products.isEmpty ? true : false
         }
     }
     

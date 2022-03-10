@@ -14,9 +14,8 @@ struct SearchView: View {
     
     var body: some View {
         VStack {
-            Text("Ingresa una busqueda")
-                .underline()
-                .foregroundColor(.gray)
+            Text("Mercado Libre Argentina (Search)")
+                .foregroundColor(.yellow)
                 .padding(.horizontal, 16)
             TextField("Busqueda", text: $searchVM.searchQuery)
                 .foregroundColor(.gray)
@@ -30,6 +29,12 @@ struct SearchView: View {
                     .progressViewStyle(CircularProgressViewStyle(tint: .blue))
                     .frame(height: 50)
                     .scaleEffect(2)
+            }
+            
+            if searchVM.emptyResult{
+                Text(searchVM.emptyMessage)
+                    .foregroundColor(.blue)
+                    .padding(.horizontal, 16)
             }
             List($searchVM.products){ $product in
                 NavigationLink(
