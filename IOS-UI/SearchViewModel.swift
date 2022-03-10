@@ -66,7 +66,7 @@ final class SearchViewModel:ObservableObject {
     
     func failure(_ err: SearchProduct.Error){
         if err == .connectivity {
-            error("Error de conexión")
+            error("Error de conexión, verifica tu conexión a internet")
         }else {
             error("Tenemos problemas para obtener la información")
         }
