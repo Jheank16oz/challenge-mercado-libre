@@ -33,10 +33,8 @@ final class SearchViewModel:ObservableObject {
     // End Model
     
     private let searchProduct:SearchProduct
-    init(){
-        let url:URL = URL(string: "https://api.mercadolibre.com/sites/MLA/search")!
-        let client = URLSessionHTTPClient()
-        searchProduct = SearchProduct(url: url, client: client)
+    init(searchProduct:SearchProduct){
+        self.searchProduct = searchProduct
     }
     
     

@@ -10,7 +10,11 @@ import ChallengeMercadoLibre
 
 struct SearchView: View {
     @State private var selectedItem: ProductItem? = nil
-    @StateObject var searchVM = SearchViewModel()
+    @StateObject var searchVM:SearchViewModel
+    
+    init(searchVM: StateObject<SearchViewModel>){
+        _searchVM = searchVM
+    }
     
     var body: some View {
         VStack {
@@ -24,6 +28,7 @@ struct SearchView: View {
                 .onSubmit {
                     searchVM.search()
                 }
+            
             if searchVM.progress {
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle(tint: .blue))
@@ -36,6 +41,7 @@ struct SearchView: View {
                     .foregroundColor(.blue)
                     .padding(.horizontal, 16)
             }
+            
             List($searchVM.products){ $product in
                 NavigationLink(
                     destination: DetailView(detailItem: $product),
@@ -67,7 +73,7 @@ struct SearchView: View {
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchView()
+        Text("")
     }
 }
 
